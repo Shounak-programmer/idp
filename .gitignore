@@ -1,0 +1,102 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Configuration
+.env
+.env.local
+config/local/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+instance/
+.mongodb/
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Models & Data
+*.pt
+*.pth
+*.h5
+*.model
+model_weights/
+training_data/
+dataset/
+*.zip
+
+# Build & Distribution
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+Thumbs.db
+.DS_Store
+*.tmp
+
+# Node (for frontend if applicable)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Credentials & Secrets
+*.pem
+*.key
+*.crt
+firebase_config.json
+credentials.json
+secrets/
+
+# Temporary Files
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# IDE specific
+.vscode/launch.json
+.idea/workspace.xml
+*.sublime-project
+*.sublime-workspace
+
+# OS Generated
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Project specific
+test_results/
+output/
+results/
+*.pickle
+*.pkl
