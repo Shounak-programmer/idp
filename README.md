@@ -278,9 +278,9 @@ We welcome contributions! Please:
 
 ## 📞 Contact & Support
 
-- **Project Mentor:** [Faculty Name to be Added]
-- **Lead Coordinator:** Shounak
-- **Email:** [team-email@adamas.edu.in]
+- **Project Mentor:** Shiplu Sir
+- **Lead Coordinator:** Shounak Chatterjee 
+- **Email:**
 - **GitHub Issues:** [Report bugs and request features](https://github.com/Shounak-programmer/idp/issues)
 
 ---
@@ -299,5 +299,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Last Updated:** November 11, 2025  
+**Last Updated:** November 17, 2025  
 **Status:** 🟢 Active Development
