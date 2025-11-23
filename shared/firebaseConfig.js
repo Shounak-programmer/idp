@@ -4,13 +4,13 @@ import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyBNGbKVBawiKvqYpKwq2_WGd50fx-z-Ptw",
-    authDomain: "smart-traffic-system-c4b0b.firebaseapp.com",
-    projectId: "smart-traffic-system-c4b0b",
-    storageBucket: "smart-traffic-system-c4b0b.firebasestorage.app",
-    messagingSenderId: "880538722912",
-    appId: "1:880538722912:web:27d175ac2985fe9d671905",
-    measurementId: "G-BMDTXD1M4Q"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
