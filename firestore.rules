@@ -1,0 +1,60 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper function to check if user has a specific role (assuming custom claims or user document)
+    // For simplicity in this prototype, we'll assume:
+    // - Driver: Anonymous (request.auth.token.firebase.sign_in_provider == 'anonymous')
+    // - Ambulance/Admin: Email/Password (request.auth.token.firebase.sign_in_provider == 'password')
+    
+    function isDriver() {
+      return request.auth.token.firebase.sign_in_provider == 'anonymous';
+    }
+
+    function isOfficial() {
+      return request.auth.token.firebase.sign_in_provider == 'password';
+    }
+
+    // Vehicles: Drivers can update their own vehicle, everyone can read
+    match /vehicles/{vehicleId} {
+      allow read: if true;
+      allow create: if isAuthenticated(); // Drivers create their own entry
+      allow update: if isAuthenticated() && (request.auth.uid == resource.data.ownerId || isDriver()); // Simplified for prototype
+    }
+
+    // Ambulances: Only officials can write, everyone can read
+    match /ambulances/{ambulanceId} {
+      allow read: if true;
+      allow write: if isOfficial();
+    }
+
+    // Signals: Only officials (or Cloud Functions) can write, everyone can read
+    match /signals/{signalId} {
+      allow read: if true;
+      allow write: if isOfficial();
+    }
+
+    // Cases: Only officials can read/write
+    match /cases/{caseId} {
+      allow read, write: if isOfficial();
+    }
+
+    // Horn Events: Drivers can create, everyone can read (for radar)
+    match /events/hornEvents/items/{eventId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+    }
+
+    // Signal Logs: Read-only for audit, written by Admin/Functions
+    match /events/signalLogs/items/{logId} {
+      allow read: if isOfficial();
+      allow write: if isOfficial();
+    }
+  }
+}

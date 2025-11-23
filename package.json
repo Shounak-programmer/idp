@@ -1,0 +1,15 @@
+{
+  "name": "smart-traffic-system",
+  "version": "1.0.0",
+  "description": "Smart Traffic System Monorepo",
+  "scripts": {
+    "install:all": "npm install && cd driver-app && npm install && cd ../ambulance-app && npm install && cd ../admin-dashboard && npm install && cd ../backend && npm install",
+    "dev:driver": "cd driver-app && npm run dev",
+    "dev:ambulance": "cd ambulance-app && npm run dev",
+    "dev:admin": "cd admin-dashboard && npm run dev",
+    "dev:backend": "npx firebase-tools emulators:start --only functions,firestore,auth,hosting"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
